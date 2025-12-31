@@ -15,7 +15,7 @@ after_success:
 #login to docker hub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 #take those images and push them to docker hub
-  - docker push dimtaiwo331/complex-client
+  - docker push dimtaiwo331/multi-client
   - docker push dimtaiwo331/complex-nginx
   - docker push dimtaiwo331/complex-server
   - docker push dimtaiwo331/complex-worker
