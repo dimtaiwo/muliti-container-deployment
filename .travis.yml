@@ -12,3 +12,10 @@ after_success:
   - docker build -t dimejitaiwo331/complex-nginx ./nginx
   - docker build -t dimejitaiwo331/complex-server ./server
   - docker build -t dimejitaiwo331/complex-worker ./worker
+#login to docker hub
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+#take those images and push them to docker hub
+  - docker push dimejitaiwo331/complex-client
+  - docker push dimejitaiwo331/complex-nginx
+  - docker push dimejitaiwo331/complex-server
+  - docker push dimejitaiwo331/complex-worker
