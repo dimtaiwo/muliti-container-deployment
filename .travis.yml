@@ -8,7 +8,7 @@ before_install:
 script:
   - docker run -e CI=true dimtaiwo331/react-test npm test -- --coverage
 after_success:
-  - docker build -t dimtaiwo331/complex-client ./client
+  - docker build -t dimtaiwo331/multi-client ./client
   - docker build -t dimtaiwo331/complex-nginx ./nginx
   - docker build -t dimtaiwo331/complex-server ./server
   - docker build -t dimtaiwo331/complex-worker ./worker
