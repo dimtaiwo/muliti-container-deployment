@@ -4,18 +4,18 @@ sudo: required
 services:
   - docker
 before_install:
-  - docker build -t dimejitaiwo331/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t dimtaiwo331/react-test -f ./client/Dockerfile.dev ./client
 script:
-  - docker run -e CI=true dimejitaiwo331/react-test npm test -- --coverage
+  - docker run -e CI=true dimtaiwo331/react-test npm test -- --coverage
 after_success:
-  - docker build -t dimejitaiwo331/complex-client ./client
-  - docker build -t dimejitaiwo331/complex-nginx ./nginx
-  - docker build -t dimejitaiwo331/complex-server ./server
-  - docker build -t dimejitaiwo331/complex-worker ./worker
+  - docker build -t dimtaiwo331/complex-client ./client
+  - docker build -t dimtaiwo331/complex-nginx ./nginx
+  - docker build -t dimtaiwo331/complex-server ./server
+  - docker build -t dimtaiwo331/complex-worker ./worker
 #login to docker hub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 #take those images and push them to docker hub
-  - docker push dimejitaiwo331/complex-client
-  - docker push dimejitaiwo331/complex-nginx
-  - docker push dimejitaiwo331/complex-server
-  - docker push dimejitaiwo331/complex-worker
+  - docker push dimtaiwo331/complex-client
+  - docker push dimtaiwo331/complex-nginx
+  - docker push dimtaiwo331/complex-server
+  - docker push dimtaiwo331/complex-worker
